@@ -1,0 +1,43 @@
+{
+  "steps": [
+    {
+      "id": "download-scenario-data",
+      "command": "csm-data",
+      "arguments": [
+        "api", "run-load-data"
+      ],
+      "useSystemEnvironment": true
+    },
+    {
+      "id": "WhatIf",
+      "description": "WhatIf Runtemplate",
+      "command": "python",
+      "arguments": [
+        "code/run_templates/WhatIf/main.py"
+      ],
+      "useSystemEnvironment": true,
+      "precedents": ["download-scenario-data"]
+    },
+    {
+      "id": "load-store",
+      "command": "csm-data",
+      "arguments": [
+        "store",
+        "load-csv-folder"
+      ],
+      "useSystemEnvironment": true,
+      "precedents": ["WhatIf"]
+    },
+    {
+      "id": "send-results-store",
+      "command": "csm-data",
+      "arguments": [
+        "store",
+        "dump-to-postgresql",
+        ""
+      ],
+      "useSystemEnvironment": true,
+      "precedents": ["load-store"]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+kind: Solution
+namespace:
+  remote: false
+metadata:
+  selector:
+    organization_id: "{{services['api.organization_id']}}"
+spec:
+  sidecars:
+  payload:
+    key: "{{solution_key}}"
+    name: "{{solution_name}}"
+    description: "{{solution_description}}"
+    repository: "{{simulator_repository}}"
+    version: "{{simulator_version}}"
+    sdkVersion: '12.0.0'
+    alwaysPull: true
+    url: 'https://webapp-url.com'
+    tags:
+      - brewery
+    runTemplates:
+      - id: standalone
+        name: Standard simulation
+        csmSimulation: AzureWebApp/AzureWebApp_Simulation
+        run: true
+        preRun: true
+    parameters:
+    parameterGroups:
+    security: {{security}}
