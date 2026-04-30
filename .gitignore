@@ -148,3 +148,5 @@ secrets.yaml
 babylon.**
 
 logs.txt
+
+terraform-webapp/
