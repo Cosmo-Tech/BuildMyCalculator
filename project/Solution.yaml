@@ -12,17 +12,78 @@ spec:
     description: "{{solution_description}}"
     repository: "{{simulator_repository}}"
     version: "{{simulator_version}}"
-    sdkVersion: '12.0.0'
+    sdkVersion: '12.1.0'
     alwaysPull: true
-    url: 'https://webapp-url.com'
+    url: 'https://cosmotech.com'
     tags:
-      - brewery
+      - calculator
+      - BMC
     runTemplates:
-      - id: standalone
-        name: Standard simulation
-        csmSimulation: AzureWebApp/AzureWebApp_Simulation
-        run: true
-        preRun: true
+      - id: Calculator
+        name: Calculator
+        labels:
+          en: Calculator
+          fr: Calculateur
+        parameterGroups:
+          - calculator_parameters_group
+        runSizing:
+          requests:
+            cpu: '1'
+            memory: 4Gi
+          limits:
+            cpu: '1'
+            memory: 4Gi
+        tags:
+          - calculator
     parameters:
+    - id: a_value
+      labels:
+        en: a value
+        fr: une valeur
+      varType: number
+      defaultValue: "1"
+      additionalData:
+        description: a value used for calculation
+    - id: b_value
+      labels:
+        en: b value
+        fr: une valeur b
+      varType: number
+      defaultValue: "1"
+      additionalData:
+        description: b value used for calculation
+    - id: operator
+      labels:
+        en: Operator
+        fr: Opérateur
+      varType: enum
+      defaultValue: "+"
+      additionalData:
+        description: Operator to apply on a and b values
+        enumValues:
+          - key: "+"
+            value:
+              en: Addition
+              fr: Addition
+          - key: "-"
+            value:
+              en: Subtraction
+              fr: Soustraction
+          - key: "*"
+            value:
+              en: Multiplication
+              fr: Multiplication
+          - key: "/"
+            value:
+              en: Division
+              fr: Division
     parameterGroups:
+      - id: calculator_parameters_group
+        labels:
+          en: Calculator parameters
+          fr: Paramètres du calculateur
+        parameters:
+          - a_value
+          - b_value
+          - operator
     security: {{security}}

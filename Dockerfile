@@ -10,8 +10,6 @@ COPY ["./requirements.txt", "./requirements.txt"]
 
 RUN pip install --no-cache-dir -r requirements.txt &&  rm requirements.txt
 
-RUN touch __init__.py
-
 WORKDIR /pkg/share/code/run_templates
 
-COPY ["./RunTemplates/WhatIf", "./WhatIf"]
+COPY ["./RunTemplates/", "./"]

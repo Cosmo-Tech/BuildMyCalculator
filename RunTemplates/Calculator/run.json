@@ -4,40 +4,48 @@
       "id": "download-scenario-data",
       "command": "csm-data",
       "arguments": [
-        "api", "run-load-data"
+        "api",
+        "run-load-data"
       ],
       "useSystemEnvironment": true
     },
     {
-      "id": "WhatIf",
-      "description": "WhatIf Runtemplate",
+      "id": "Calculator",
+      "description": "Calculator Runtemplate",
       "command": "python",
       "arguments": [
-        "code/run_templates/WhatIf/main.py"
+        "code/run_templates/Calculator/main.py"
       ],
       "useSystemEnvironment": true,
-      "precedents": ["download-scenario-data"]
+      "precedents": [
+        "download-scenario-data"
+      ]
     },
     {
       "id": "load-store",
       "command": "csm-data",
       "arguments": [
         "store",
-        "load-csv-folder"
+        "load-csv-folder",
+        "--csv-folder",
+        "/pkg/share/Simulation/Output"
       ],
       "useSystemEnvironment": true,
-      "precedents": ["WhatIf"]
+      "precedents": [
+        "Calculator"
+      ]
     },
     {
       "id": "send-results-store",
       "command": "csm-data",
       "arguments": [
         "store",
-        "dump-to-postgresql",
-        ""
+        "output"
       ],
       "useSystemEnvironment": true,
-      "precedents": ["load-store"]
+      "precedents": [
+        "load-store"
+      ]
     }
   ]
 }

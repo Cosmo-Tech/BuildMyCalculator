@@ -2,7 +2,7 @@ kind: Organization
 namespace:
   remote: false
 spec:
-  sidecars: 
+  sidecars:
   payload:
     name: "{{organization_name}}"
     security: {{security}}

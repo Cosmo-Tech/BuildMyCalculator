@@ -1,32 +1,28 @@
-# =========================================================
-# IMPORTANT: You can add variables here as needed!
-# Make sure they are used in the manifest YAML.
-# =========================================================
 # Organization
 organization_name: BMC
 # Solution
 solution_name: BMC
 simulator_repository: tenant-e2e/calculator
-solution_description: Brewery Testing babylon v5 Solution PLT
-solution_key: breweryTesting
+solution_description: Build My Calculator Solution PLT
+solution_key: buildmycalculator
 simulator_version: 1.0.0
 # Workspace
 workspace_name: BMC
-workspace_key: brewerytestingwork
-workspace_description: Testing workspace for the brewery web application
+workspace_key: buildmycalculator
+workspace_description: Testing workspace for the build my calculator solution
 # Webapp
 cloud_provider: azure
-cluster_name: aks-qa-campaign
-cluster_domain: aks-qa-campaign.azure.platform.cosmotech.com
+cluster_name: aks-bmc
+domain_zone: azure.platform.cosmotech.com
 tenant: e2e
 webapp_name: bmc
 organization_id: o-xxxxxxxxxxx
-azure_subscription_id: a24b131f-bd0b-42e8-872a-bded9b91ab74
-azure_entra_tenant_id: e413b834-8be8-4822-a370-be619545cb49
+azure_subscription_id: 00000000-0000-0000-0000-000000000000
+azure_entra_tenant_id: 00000000-0000-0000-0000-000000000000
 powerbi_app_deploy: false
 # ACL
 security:
   default: none
   accessControlList:
-    - id: leopold.cramer@cosmotech.com 
+    - id: john.doe@email.com
       role: admin
