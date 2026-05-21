@@ -12,9 +12,9 @@ Installation Babylon CLI
 
 ```bash
 python3 -m venv ~/.babylonenv
-source ~/.babylonenv/bin/activate
-pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.1.0
-echo 'alias babylonenv="source ~/.babylonenv/bin/activate"' >> ~/.bashrc
+~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.2.0
+echo 'alias babylon="~/.babylonenv/bin/babylon"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Update and deploy solution
@@ -26,7 +26,7 @@ babylon namespace use -c tenant-bmc -t tenant-bmc -s tenant-bmc
 ```
 
 ```bash
-babylon apply --exclude webapp project/
+babylon apply project/
 ```
 
 Build the Docker image with a new tag (e.g., `0.1.0-dev`):

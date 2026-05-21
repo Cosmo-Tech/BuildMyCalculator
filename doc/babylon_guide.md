@@ -4,9 +4,9 @@
 
 ```bash
 python3 -m venv ~/.babylonenv
-source ~/.babylonenv/bin/activate
-pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.1.0
-echo 'alias babylonenv="source ~/.babylonenv/bin/activate"' >> ~/.bashrc
+~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.2.0
+echo 'alias babylon="~/.babylonenv/bin/babylon"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 Verify installation:
@@ -154,48 +154,48 @@ Direct interactions with the CosmoTech API. All API commands support:
 
 ```bash
 babylon api organizations list
-babylon api organizations get --oid o-lp2zy1jlr8kw
+babylon api organizations get --oid o-xxxxxxxxxxxx
 babylon api organizations create project/Organization.yaml
-babylon api organizations update project/Organization.yaml --oid o-lp2zy1jlr8kw
-babylon api organizations delete --oid o-lp2zy1jlr8kw
+babylon api organizations update project/Organization.yaml --oid o-xxxxxxxxxxxx
+babylon api organizations delete --oid o-xxxxxxxxxxxx
 ```
 
 ### Solutions
 
 ```bash
-babylon api solutions list --oid o-lp2zy1jlr8kw
-babylon api solutions get --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j
-babylon api solutions create project/Solution.yaml --oid o-lp2zy1jlr8kw
-babylon api solutions update project/Solution.yaml --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j
-babylon api solutions delete --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j
+babylon api solutions list --oid o-xxxxxxxxxxxx
+babylon api solutions get --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy
+babylon api solutions create project/Solution.yaml --oid o-xxxxxxxxxxxx
+babylon api solutions update project/Solution.yaml --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy
+babylon api solutions delete --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy
 ```
 
 ### Workspaces
 
 ```bash
-babylon api workspaces list --oid o-lp2zy1jlr8kw
-babylon api workspaces get --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml
-babylon api workspaces create project/Workspace.yaml --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j
-babylon api workspaces update project/Workspace.yaml --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml
-babylon api workspaces delete --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml
+babylon api workspaces list --oid o-xxxxxxxxxxxx
+babylon api workspaces get --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz
+babylon api workspaces create project/Workspace.yaml --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy
+babylon api workspaces update project/Workspace.yaml --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz
+babylon api workspaces delete --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz
 ```
 
 ### Datasets
 
 ```bash
-babylon api datasets list --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml
-babylon api datasets get --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id>
-babylon api datasets create payload.yaml --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml
-babylon api datasets delete --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id>
+babylon api datasets list --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz
+babylon api datasets get --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id>
+babylon api datasets create payload.yaml --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz
+babylon api datasets delete --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id>
 
 # Dataset parts
-babylon api datasets list-parts --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id>
-babylon api datasets create-part payload.yaml --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id>
-babylon api datasets download-part --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id> --dpid <part_id>
-babylon api datasets delete-part --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id> --dpid <part_id>
+babylon api datasets list-parts --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id>
+babylon api datasets create-part payload.yaml --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id>
+babylon api datasets download-part --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id> --dpid <part_id>
+babylon api datasets delete-part --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id> --dpid <part_id>
 
 # Query data from a dataset part
-babylon api datasets query-data --oid o-lp2zy1jlr8kw --wid w-q4n5oomrm6ml --did <dataset_id> --dpid <part_id> \
+babylon api datasets query-data --oid o-xxxxxxxxxxxx --wid w-zzzzzzzzzzzz --did <dataset_id> --dpid <part_id> \
   --selects "col1,col2" --group-bys "col1" --limit 100
 ```
 
@@ -212,15 +212,15 @@ babylon api about
 Add `-o` to any API command to change the output:
 
 ```bash
-babylon api solutions list --oid o-lp2zy1jlr8kw -o json
-babylon api solutions list --oid o-lp2zy1jlr8kw -o yaml
-babylon api solutions list --oid o-lp2zy1jlr8kw -o wide
+babylon api solutions list --oid o-xxxxxxxxxxxx -o json
+babylon api solutions list --oid o-xxxxxxxxxxxx -o yaml
+babylon api solutions list --oid o-xxxxxxxxxxxx -o wide
 ```
 
 Save to file:
 
 ```bash
-babylon api solutions get --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j -o json -f solution_backup.json
+babylon api solutions get --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy -o json -f solution_backup.json
 ```
 
 ---
@@ -250,7 +250,7 @@ babylon apply --exclude Webapp project/
 
 ```bash
 babylon -v DEBUG apply project/
-babylon -v DEBUG api solutions get --oid o-lp2zy1jlr8kw --sid sol-veqgv47ejl1j
+babylon -v DEBUG api solutions get --oid o-xxxxxxxxxxxx --sid sol-yyyyyyyyyyyy
 ```
 
 ---
@@ -271,9 +271,9 @@ variables.yaml           # Template variables used by Babylon
 
 | Resource | ID |
 |---|---|
-| Organization | `o-lp2zy1jlr8kw` |
-| Solution | `sol-veqgv47ejl1j` |
-| Workspace | `w-q4n5oomrm6ml` |
+| Organization | `o-xxxxxxxxxxxx` |
+| Solution | `sol-yyyyyyyyyyyy` |
+| Workspace | `w-zzzzzzzzzzzz` |
 
 ---
 

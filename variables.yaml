@@ -1,8 +1,10 @@
+# Set if babylon state is store in a remote backend (true) or locally (false)
+remote: true
 # Organization
 organization_name: BMC
 # Solution
 solution_name: BMC
-simulator_repository: tenant-e2e/calculator
+simulator_repository: my-registry/calculator
 solution_description: Build My Calculator Solution PLT
 solution_key: buildmycalculator
 simulator_version: 1.0.0
