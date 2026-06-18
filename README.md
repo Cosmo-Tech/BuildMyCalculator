@@ -12,7 +12,7 @@ Installation Babylon CLI
 
 ```bash
 python3 -m venv ~/.babylonenv
-~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.2.0
+~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.3.0
 echo 'alias babylon="~/.babylonenv/bin/babylon"' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -22,7 +22,7 @@ source ~/.bashrc
 After adding a new RunTemplate or modifying an existing one, you need to rebuild the Docker image and apply the changes with Babylon.
 
 ```bash
-babylon namespace use -c tenant-bmc -t tenant-bmc -s tenant-bmc
+babylon namespace use -c tenant-bmc -t tenant-bmc
 ```
 
 ```bash

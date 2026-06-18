@@ -4,7 +4,7 @@
 
 ```bash
 python3 -m venv ~/.babylonenv
-~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.2.0
+~/.babylonenv/bin/pip install git+https://github.com/Cosmo-Tech/Babylon.git@5.3.0
 echo 'alias babylon="~/.babylonenv/bin/babylon"' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -12,7 +12,7 @@ source ~/.bashrc
 Verify installation:
 
 ```bash
-babylon --version
+babylon
 ```
 
 ## Global Options
@@ -29,18 +29,21 @@ Every command supports these flags:
 
 ## 1. Namespace Management
 
-A **namespace** is a combination of context + tenant + state that tells Babylon which environment to target.
+A **namespace** is a combination of context + tenant that tells Babylon which environment to target.
 
 ### Switch / create namespace
 
 ```bash
-babylon namespace use -c <context> -t <tenant> -s <state_id>
+babylon namespace use -c <context> -t <tenant>
 ```
+
+- The context is a user-friendly name for the environment (e.g., `my-app-dev, my-app-prod`).
+- The kubernetes namespace to target (e.g., `tenant-bmc`).
 
 Example for this project:
 
 ```bash
-babylon namespace use -c tenant-bmc -t tenant-bmc -s tenant-bmc
+babylon namespace use -c tenant-bmc -t tenant-bmc
 ```
 
 ### View active namespace
@@ -115,7 +118,7 @@ babylon apply --var-file ./my_variables.yaml project/
 ### Override namespace inline
 
 ```bash
-babylon apply -c tenant-bmc -t tenant-bmc -s tenant-bmc project/
+babylon apply -c tenant-bmc -t tenant-bmc project/
 ```
 
 ### Dry run (preview without applying)
@@ -281,7 +284,7 @@ variables.yaml           # Template variables used by Babylon
 
 | Task | Command |
 |---|---|
-| Set namespace | `babylon namespace use -c <ctx> -t <tenant> -s <state>` |
+| Set namespace | `babylon namespace use -c <ctx> -t <tenant>` |
 | Show namespace | `babylon namespace get-contexts` |
 | Init project | `babylon init` |
 | Deploy all | `babylon apply project/` |
