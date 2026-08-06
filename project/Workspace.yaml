@@ -15,15 +15,8 @@ spec:
     description: "{{workspace_description}}"
     solution:
       solutionId: "{{services['api.solution_id']}}"
-    useDedicatedEventHubNamespace: true
-    sendScenarioMetadataToEventHub: true
-    sendInputToDataWarehouse: true
-    sendScenarioRunToEventHub: true
     additionalData:
       webapp:
-        solution:
-          runTemplateFilter:
-          defaultRunTemplateDataset: null
         charts:
           workspaceId:
           logInWithUserCredentials: false
@@ -36,6 +29,6 @@ spec:
           supportUrl: 'https://support.cosmotech.com'
           organizationUrl: 'https://cosmotech.com'
           documentationUrl: 'https://portal.cosmotech.com/resources/platform-resources/web-app-user-guide'
-        datasetManager: 'removeToDisableDatasetManager'
-        datasourceFilter: []
+        datasetManager:
+          datasourceFilter: []
     security: {{security}}

@@ -12,9 +12,8 @@ spec:
     description: "{{solution_description}}"
     repository: "{{simulator_repository}}"
     version: "{{simulator_version}}"
-    sdkVersion: '12.1.0'
     alwaysPull: true
-    url: 'https://cosmotech.com'
+    url: 
     tags:
       - calculator
       - BMC
